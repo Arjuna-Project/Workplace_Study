@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role: IT Support</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the accordion panel (hidden by default) */
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Style for the icon rotation */
+        .accordion-button .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-button.active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="mb-10">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to All Roles
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">IT Support</h1>
+            <p class="mt-3 text-lg text-gray-600">The technical backbone of the workplace, keeping all systems running smoothly.</p>
+        </header>
+
+        <!-- Main Content: Accordion -->
+        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">IT Support helps employees solve technical problems and keeps company systems running. Their duties include:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Primary:</strong> Fixing hardware/software, resetting passwords, managing user accounts (Active Directory, Azure), handling network/VPN issues, and setting up laptops for new joiners.</li>
+                        <li><strong>Secondary:</strong> Documenting solutions, creating knowledge articles, and assisting with IT projects or system upgrades.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">2. Who do they report to?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They usually report to an <strong>IT Support Team Lead</strong> or <strong>Service Desk Manager</strong>. They also work closely with Network, Hardware, and Application teams for escalations.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">3. What is the starting point of their career?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Most start in entry-level roles like <strong>Helpdesk Support</strong> or <strong>Service Desk Analyst (L1)</strong>. At this stage, they focus on basic tasks like password resets, software installation, and connectivity problems.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">4. What is the career path?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The path moves from general support to specialized and leadership roles:</p>
+                    <p class="text-gray-600 mt-2"><strong>Path:</strong> L1 Support Analyst &rarr; L2 Technical Support / System Admin &rarr; L3 Infrastructure / Network / Cloud Engineer &rarr; IT Team Lead &rarr; IT Manager</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">5. What is their qualification?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A <strong>degree or diploma in Computer Science / IT</strong> is standard. Optional certifications like <strong>CompTIA A+</strong>, <strong>Network+</strong>, <strong>CCNA</strong>, or Microsoft/AWS certs are very helpful.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">6. How do they interact with other teams?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They are a central hub. They <strong>escalate complex issues</strong> to L2/L3 teams, collaborate with <strong>Network</strong> and <strong>Security</strong> teams on access or VPN issues, and coordinate with <strong>Hardware/Asset Management</strong> for repairs.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 7 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">7. What tools or software do they use?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Their daily toolkit includes:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Ticketing:</strong> ServiceNow, Jira, Freshworks</li>
+                        <li><strong>Admin:</strong> Active Directory, Azure AD, Intune</li>
+                        <li><strong>Remote Support:</strong> AnyDesk, TeamViewer, Microsoft Teams</li>
+                        <li><strong>Monitoring:</strong> Zabbix, SolarWinds</li>
+                        <li><strong>Security:</strong> FortiClient VPN, Defender</li>
+                        <li><strong>Communication:</strong> Teams, Outlook, Slack</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 8 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">8. What kind of problems do they solve?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They fix all the technical issues that stop employees from working. This includes <strong>hardware and software failures</strong>, <strong>password resets</strong> and account lockouts, <strong>network or Wi-Fi problems</strong>, and <strong>VPN connectivity issues</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 9 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class_pro="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">9. What kind of person enjoys this job?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">This job is perfect for someone who is <strong>calm, patient, and enjoys solving technical challenges</strong>. They must be a good communicator who can explain technical ideas to non-technical users and have a genuine desire to help people.</p>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 10 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">10. How does their work help the company?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They ensure smooth business operations. By fixing issues quickly, they <strong>reduce downtime</strong>, <strong>improve employee productivity</strong>, and keep the company's technology secure and reliable.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 11 -->
+            <div class="accordion-item">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">11. How has AI changed the role?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The role is now more proactive. AI handles routine tasks like <strong>password resets</strong> and <strong>system monitoring</strong>, which reduces manual work. This allows the IT team to focus on improving performance, ensuring security, and preventing issues before they happen.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>Workplace Study Presentation</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for the accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class for the icon rotation
+                    button.classList.toggle('active');
+                    
+                    // Get the panel
+                    const panel = button.nextElementSibling;
+                    
+                    // Toggle the panel's visibility
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        // Add a little extra to height to prevent content cutoff
+                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

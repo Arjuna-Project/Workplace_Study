@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role: DevOps</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the accordion panel (hidden by default) */
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Style for the icon rotation */
+        .accordion-button .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-button.active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="mb-10">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to All Roles
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">DevOps Team</h1>
+            <p class="mt-3 text-lg text-gray-600">The architects of automation, bridging development and operations.</p>
+        </header>
+
+        <!-- Main Content: Accordion -->
+        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They automate and manage the software release process to make it fast and reliable. Their duties include:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Primary:</strong> Automating CI/CD (Continuous Integration/Continuous Deployment) pipelines, managing cloud infrastructure (AWS, Azure), and monitoring performance (Prometheus, Grafana).</li>
+                        <li><strong>Secondary:</strong> Troubleshooting production issues, optimizing pipelines, and supporting development teams during deployments.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">2. Who do they report to?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Typically, they report to an <strong>IT Manager</strong>, <strong>Engineering Manager</strong>, <strong>DevOps Lead</strong>, or <strong>Project Manager</strong>, depending on the company's structure.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">3. What is the starting point of their career?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Many start as a <strong>Developer</strong>, <strong>System Administrator</strong>, or in <strong>IT Support</strong>. They build a foundation in programming and networking, then transition into DevOps as their interest in automation and cloud technologies (like AWS or IaC) grows.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">4. What is the career path?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The path moves from foundational roles to specialized leadership:</p>
+                    <p class="text-gray-600 mt-2"><strong>Path:</strong> Junior DevOps Engineer &rarr; DevOps Engineer &rarr; Senior DevOps Engineer &rarr; DevOps Lead/Manager &rarr; Cloud or Platform Architect</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">5. What is their qualification?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A degree in <strong>Computer Science</strong> or <strong>IT</strong> is common. <strong>Cloud certifications</strong> (like AWS or Azure) and expertise in DevOps tools are highly important for career growth.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">6. How do they interact with other teams?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">DevOps acts as a <strong>bridge between teams</strong>, especially Developers, Testers, and Operations. They use collaboration tools like <strong>Jira</strong> and <strong>Microsoft Teams</strong> to automate builds, deployments, and testing, helping everyone work more efficiently.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 7 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">7. What tools or software do they use?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They use a wide variety of tools to manage infrastructure and automation:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Version Control:</strong> Git, GitHub, GitLab</li>
+                        <li><strong>CI/CD Automation:</strong> Jenkins, GitHub Actions</li>
+                        <li><strong>Containers:</strong> Docker, Kubernetes</li>
+                        <li><strong>Infrastructure as Code (IaC):</strong> Terraform, Ansible</li>
+                        <li><strong>Cloud Platforms:</strong> AWS, Azure</li>
+                        <li><strong>Monitoring:</strong> Prometheus, Grafana</li>
+                        <li><strong>Collaboration:</strong> Jira, Microsoft Teams</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 8 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">8. What kind of problems do they solve?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They are expert troubleshooters for the release process, fixing:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li>Pipeline failures and deployment errors.</li>
+                        <li>Configuration mismatches between environments.</li>
+                        <li>Server performance issues (e.g., high CPU/RAM).</li>
+                        <li>Cloud infrastructure and scaling challenges.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 9 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">9. What kind of person enjoys this job?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Someone who loves <strong>automation</strong>, <strong>problem-solving</strong>, and <strong>teamwork</strong>. This role is perfect for people who are curious, detail-oriented, and enjoy learning new technologies to improve systems.</p>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 10 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">10. How does their work help the company?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700"><strong>Faster Releases:</strong> Automation helps the company release new features faster, improving productivity.</p>
+                    <p class="text-gray-700 mt-2"><strong>Customer Satisfaction:</strong> By ensuring stable and reliable releases with minimal downtime, they provide a smooth product experience, which builds customer trust.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 11 -->
+            <div class="accordion-item">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">11. How has AI changed the role?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">AI-driven tools now help <strong>predict and detect issues</strong> more efficiently. AI simplifies complex operations, enhances monitoring with automated alerts, and minimizes manual work, making DevOps processes smarter and faster.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>Workplace Study Presentation</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for the accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class for the icon rotation
+                    button.classList.toggle('active');
+                    
+                    // Get the panel
+                    const panel = button.nextElementSibling;
+                    
+                    // Toggle the panel's visibility
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        // Add a little extra to height to prevent content cutoff
+                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role: QA Engineer</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the accordion panel (hidden by default) */
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Style for the icon rotation */
+        .accordion-button .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-button.active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="mb-10">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to All Roles
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">QA Engineer</h1>
+            <p class="mt-3 text-lg text-gray-600">The "Guardians of Quality," ensuring product stability and user satisfaction.</p>
+        </header>
+
+        <!-- Main Content: Accordion -->
+        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Their main job is to find and report bugs before a product reaches the customer. This involves:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li>Developing and maintaining detailed test cases.</li>
+                        <li>Executing manual tests (exploratory, usability).</li>
+                        <li>Creating automation scripts (for regression, functional, and API testing).</li>
+                        <li>Logging defects with clear steps to reproduce.</li>
+                        <li>Verifying that bugs have been fixed.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">2. Who do they report to?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A QA Engineer typically reports to a <strong>QA Lead</strong> or <strong>QA Manager</strong>. In some team structures, they may also report to a <strong>Product Manager</strong> or <strong>Engineering Lead</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">3. What is the starting point of their career?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Many start as a <strong>Manual Tester</strong> or join via a software testing course or academy. QA is a very accessible field, with professionals successfully transitioning from diverse backgrounds like Civil Engineering.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">4. What is the career path?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The path is flexible, offering both technical and leadership growth:</p>
+                    <p class="text-gray-600 mt-2"><strong>Technical Path:</strong> Manual Tester &rarr; Automation QA &rarr; SDET (Software Dev Engineer in Test) &rarr; QA Architect</p>
+                    <p class="text-gray-600 mt-2"><strong>Leadership Path:</strong> Manual Tester &rarr; Senior QA Analyst &rarr; QA Lead &rarr; QA Manager</p>
+                    <p class="text-gray-600 mt-2">Lateral moves into <strong>DevOps</strong> or <strong>Product Management</strong> are also common.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">5. What is their qualification?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">While IT/CS degrees are common, a formal testing course is often all that's needed. The most important qualifications are skills in <strong>programming (Java, Python)</strong>, <strong>automation tools (Selenium, Playwright)</strong>, and strong <strong>soft skills</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">6. How do they interact with other teams?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Collaboration is essential. They work very closely with <strong>Developers</strong> to understand features, report bugs, and verify fixes. They also participate in daily <strong>Scrum stand-ups</strong> and sprint planning with the entire product team.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 7 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">7. What tools or software do they use?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Their toolkit is large and varied:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Bug Tracking:</strong> Jira, Redmine</li>
+                        <li><strong>Test Automation:</strong> Selenium, Playwright, TestNG</li>
+                        <li><strong>API Testing:</strong> Postman</li>
+                        <li><strong>Performance:</strong> JMeter</li>
+                        <li><strong>CI/CD & Version Control:</strong> Jenkins, Git</li>
+                        <li><strong>Test Management:</strong> TestRail, Excel</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 8 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">8. What kind of problems do they solve?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They handle any challenge related to quality, including:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li>Unclear or constantly changing requirements.</li>
+                        <li>Tight sprint deadlines and time constraints.</li>
+                        <li>Maintaining and updating old automation scripts for new features.</li>
+                        <li>Bugs that only appear in one environment (e.g., QA vs. Production).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 9 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">9. What kind of person enjoys this job?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Someone with a strong <strong>attention to detail</strong> and a "guardian" mindset. The role is perfect for <strong>curious</strong> people who love to learn new tools and solve puzzles. Good communication and teamwork skills are essential.</p>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 10 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">10. Manual vs. Automation?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A modern QA role requires a <strong>balance of both</strong>. </p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Automation</strong> (Selenium, Playwright) is used for repetitive, time-consuming tasks like regression testing.</li>
+                        <li><strong>Manual testing</strong> is still critical for exploratory testing, usability, UI checks, and catching issues "a machine would miss." Human insight is irreplaceable.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 11 -->
+            <div class="accordion-item">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">11. How has AI changed the role?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Automation was the first big change. AI is the next. It's leading to <strong>"shift-left"</strong> approaches (testing earlier) and using <strong>predictive analytics</strong> to find bugs before they even happen. AI-based tools are making testing smarter and more proactive.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>Workplace Study Presentation</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for the accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class for the icon rotation
+                    button.classList.toggle('active');
+                    
+                    // Get the panel
+                    const panel = button.nextElementSibling;
+                    
+                    // Toggle the panel's visibility
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        // Add a little extra to height to prevent content cutoff
+                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workplace Study Presentation</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            overflow: hidden;
+        }
+
+        /* Fade + slight scale */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(25px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Soft floating shapes */
+        @keyframes floatShape {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
+            50% { transform: translateY(-25px) rotate(10deg); opacity: 0.5; }
+            100% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
+        }
+
+        /* Button animation */
+        @keyframes buttonPop {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .fade-up {
+            animation: fadeUp 1.2s ease-out forwards;
+        }
+
+        .btn-animate {
+            animation: buttonPop 1s ease-out forwards;
+        }
+
+        /* floating shapes style */
+        .shape {
+            position: absolute;
+            border-radius: 20px;
+            filter: blur(10px);
+            opacity: 0.35;
+            animation: floatShape 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center relative">
+
+    <!-- Floating shapes -->
+    <div class="shape bg-blue-300 w-40 h-40 top-10 left-10" style="animation-delay: 0s;"></div>
+    <div class="shape bg-indigo-300 w-32 h-32 bottom-20 right-20" style="animation-delay: 1s;"></div>
+    <div class="shape bg-blue-200 w-24 h-24 bottom-32 left-1/2" style="animation-delay: 2s;"></div>
+
+    <div class="text-center px-6 relative">
+
+        <!-- Title -->
+        <h1 class="text-5xl md:text-6xl font-extrabold text-blue-900 fade-up" style="animation-delay: 0.2s;">
+            Workplace Study Presentation
+        </h1>
+
+        <!-- Subtitle -->
+        <h2 class="text-2xl md:text-3xl mt-4 font-semibold text-blue-700 fade-up" style="animation-delay: 0.4s;">
+            Squad: Code Casters
+        </h2>
+
+        <!-- Members -->
+        <p class="text-gray-700 mt-4 max-w-xl mx-auto fade-up" style="animation-delay: 0.6s;">
+            Arockia Rahis R, Arjuna S, Ramya K, Kayalvizhi B, Bhuvaneswaran G
+        </p>
+
+        <!-- Batch -->
+        <p class="text-xl text-blue-800 font-bold mt-4 fade-up" style="animation-delay: 0.8s;">
+            FSSA — Batch 5
+        </p>
+
+        <!-- Button -->
+        <a href="index.html"
+           class="inline-block mt-10 py-3 px-12 rounded-lg bg-blue-700 text-white font-semibold text-lg shadow-md hover:bg-blue-600 transition btn-animate"
+           style="animation-delay: 1s;">
+            Get Started
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role: Customer Support</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the accordion panel (hidden by default) */
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Style for the icon rotation */
+        .accordion-button .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-button.active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="mb-10">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to All Roles
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Customer Support</h1>
+            <p class="mt-3 text-lg text-gray-600">The front line of user happiness and problem-solving.</p>
+        </header>
+
+        <!-- Main Content: Accordion -->
+        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">1. Who do you usually report to?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A Team Leader reports to the <strong>OE Head (Operation Unit Head)</strong>, who manages the entire project. The agents, in turn, report to the Team Leader.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">2. How did you start your career?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Most people start as a support <strong>agent</strong>. After gaining experience, they can move to different projects or be promoted to roles like <strong>Team Leader</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">3. What’s the career growth like in this field?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The growth is very good. With good performance, the path is:</p>
+                    <p class="text-gray-600 mt-2"><strong>Path:</strong> Agent &rarr; Team Leader &rarr; Operation Head &rarr; Manager</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">4. What’s your qualification?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A bachelor's degree (like <strong>B.Com</strong>) is a common qualification. However, <strong>years of experience</strong> in the customer support field are often just as important.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">5. How do you work with other teams in your company?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">We coordinate with <strong>Reporting</strong>, <strong>Quality</strong>, and <strong>Operations</strong> teams. This involves sharing performance reports, handling escalations, and ensuring customer issues are solved on time.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">6. What tools or software do you use most often?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The main tools are:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>Outlook</strong> (for emails)</li>
+                        <li><strong>Excel</strong> (for reports)</li>
+                        <li><strong>CRM Tools</strong> (for tracking customer issues)</li>
+                        <li>Internal company tools (for billing and data management)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 7 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">7. What kind of problems do you mostly solve?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">We handle product-related and service issues, such as <strong>delivery delays</strong>, <strong>technical problems</strong>, or <strong>policy-related concerns</strong>. The goal is to give every customer a clear and polite solution.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 8 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">8. What type of person will enjoy this job the most?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">People who are <strong>calm</strong>, <strong>polite</strong>, and <strong>good at communication</strong>. This job suits those who like helping others and can handle multiple tasks patiently.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 9 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">9. How does your work help the company or customers?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">By solving problems quickly and correctly, we keep customers happy. This <strong>builds trust and loyalty</strong> towards the company, which improves overall business growth.</p>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 10 -->
+            <div class="accordion-item">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">10. Has your role changed with new technology or AI?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Yes, slightly. We now use AI tools for <strong>grammar checks</strong>, <strong>auto-replies</strong>, and faster issue tracking. However, <strong>personal communication and empathy</strong> are still the most important parts of the job.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>Workplace Study Presentation</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for the accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class for the icon rotation
+                    button.classList.toggle('active');
+                    
+                    // Get the panel
+                    const panel = button.nextElementSibling;
+                    
+                    // Toggle the panel's visibility
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        // Add a little extra to height to prevent content cutoff
+                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

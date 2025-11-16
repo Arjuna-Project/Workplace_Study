@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role: Sales & Marketing</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use the Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Style for the accordion panel (hidden by default) */
+        .accordion-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        /* Style for the icon rotation */
+        .accordion-button .icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-button.active .icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
+
+    <div class="max-w-4xl mx-auto">
+        
+        <!-- Header Section -->
+        <header class="mb-10">
+            <!-- Back Button -->
+            <a href="index.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Back to All Roles
+            </a>
+            
+            <!-- Page Title -->
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Sales & Marketing</h1>
+            <p class="mt-3 text-lg text-gray-600">Connecting products with customers and driving company growth.</p>
+        </header>
+
+        <!-- Main Content: Accordion -->
+        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They handle clients, promote company products, and ensure the solutions offered match the customer's needs.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">2. Primary Responsibilities</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Core duties involve direct sales and marketing execution:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li>Handling client calls, product demonstrations, and follow-ups.</li>
+                        <li>Planning and supporting marketing campaigns.</li>
+                        <li>Monitoring sales performance and preparing reports.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">3. Secondary Responsibilities</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Supporting tasks include:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li>Assisting with market research.</li>
+                        <li>Collecting customer feedback for the product team.</li>
+                        <li>Maintaining CRM (Customer Relationship Management) data.</li>
+                        <li>Coordinating with other teams for events or product updates.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">4. Who do they report to?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">The reporting structure is layered, moving up from a manager to the head of the department:</p>
+                    <p class="text-gray-600 mt-2"><strong>Line:</strong> Sales Executive &rarr; Team Lead &rarr; Sales Manager &rarr; Senior Manager &rarr; Head of Sales and Marketing</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 5 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">5. What is the starting point of their career?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Many start in a general sales role. To move into the IT sector, they often learn digital marketing and CRM tools through online courses, then transition into a software company.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 6 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">6. What is the career path?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Growth depends on performance and continuous learning:</p>
+                    <p class="text-gray-600 mt-2"><strong>Path:</strong> Sales Executive &rarr; Senior Executive &rarr; Team Lead &rarr; Manager &rarr; Business Development Head or Product Marketing Manager</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 7 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">7. What is their qualification?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">A business degree like <strong>BBA</strong> is a common foundation. This is often supplemented with <strong>certifications in digital marketing and CRM tools</strong> to understand analytics and platforms.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 8 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">8. How do they interact with other teams?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They coordinate regularly with the <strong>Product</strong>, <strong>Development</strong>, and <strong>Customer Support</strong> teams. They are responsible for sharing client insights, feedback on features, and campaign reports.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 9 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">9. What tools or software do they use?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Their toolkit includes:</p>
+                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                        <li><strong>CRM Tools</strong> (like Salesforce or HubSpot)</li>
+                        <li><strong>Google Analytics</strong> (for tracking campaigns)</li>
+                        <li><strong>Canva</strong> (for creating marketing content)</li>
+                        <li><strong>Excel / Google Sheets</strong> (for reporting and analysis)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accordion Item 10 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">10. What kind of problems do they solve?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">They handle issues related to customer expectations and campaign performance. This includes clients changing their requirements, or analyzing data when sales numbers don't match expectations.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 11 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">11. What kind of person enjoys this job?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Someone who enjoys <strong>talking to people</strong>, <strong>solving problems</strong>, and handling dynamic situations. The role requires patience, confidence, and a curiosity to learn new tools and understand customer behavior.</p>
+                </div>
+            </div>
+            
+            <!-- Accordion Item 12 -->
+            <div class="accordion-item border-b border-gray-200">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">12. How does their work help the company?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Their work <strong>connects the company’s product directly with the customers</strong>. They help customers find value and, just as importantly, share customer feedback back to the company to improve the product.</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 13 -->
+            <div class="accordion-item">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
+                    <span class="text-lg font-semibold text-indigo-700">13. How has AI changed the role?</span>
+                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
+                </button>
+                <div class="accordion-panel px-6 pb-6">
+                    <p class="text-gray-700">Where the work used to be very manual (calling, updating data), <strong>AI now helps automate tasks</strong>. This includes lead scoring (ranking potential customers), automating email follow-ups, and providing deeper analytics.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 text-gray-500">
+            <p>Workplace Study Presentation</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for the accordion
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Toggle the 'active' class for the icon rotation
+                    button.classList.toggle('active');
+                    
+                    // Get the panel
+                    const panel = button.nextElementSibling;
+                    
+                    // Toggle the panel's visibility
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        // Add a little extra to height to prevent content cutoff
+                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
