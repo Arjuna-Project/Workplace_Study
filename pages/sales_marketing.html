@@ -1,247 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role: Sales & Marketing</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Use the Inter font family */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Style for the accordion panel (hidden by default) */
-        .accordion-panel {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        /* Style for the icon rotation */
-        .accordion-button .icon {
-            transition: transform 0.3s ease-in-out;
-        }
-        .accordion-button.active .icon {
-            transform: rotate(45deg);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales & Marketing – Flip Cards with Snow</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;5m00;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f9ff;
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Snow Animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-20px) translateX(0px); opacity: 1; }
+      100% { transform: translateY(120vh) translateX(50px); opacity: 0.7; }
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+      margin-top: 20px;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 600; /* less bold */
+      color: #1e3a8a;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      background: #e0edff;
+      border: 1px solid #bcd8ff;
+      padding: 10px 22px;
+      color: #1e3a8a;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #d3e6ff;
+      transform: translateX(-4px) scale(1.02);
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+    }
+
+    .flip-box {
+      perspective: 1500px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 170px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      border-radius: 14px;
+    }
+
+    .flip-box.flip .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      background: white;
+      border: 2px solid #cfe1ff;
+      box-shadow: 0 6px 12px rgba(0, 90, 200, 0.15); /* softer shadow */
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .front .card-content {
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #1e3a8a, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back .card-content {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1e3a8a;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
 
-    <div class="max-w-4xl mx-auto">
-        
-        <!-- Header Section -->
-        <header class="mb-10">
-            <!-- Back Button -->
-            <a href="home.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to All Roles
-            </a>
-            
-            <!-- Page Title -->
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Sales & Marketing</h1>
-            <p class="mt-3 text-lg text-gray-600">Connecting products with customers and driving company growth.</p>
-        </header>
+<body>
+  <script>
+    const snowCount = 80;
+    for(let i = 0; i < snowCount; i++) {
+      const snow = document.createElement('div');
+      snow.classList.add('snowflake');
+      snow.style.left = Math.random() * window.innerWidth + 'px';
+      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snow.style.opacity = Math.random() * 0.8 + 0.2;
+      snow.style.width = 5 + Math.random() * 8 + 'px';
+      snow.style.height = snow.style.width;
+      document.body.appendChild(snow);
+    }
+  </script>
 
-        <!-- Main Content: Accordion -->
-        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+  <main class="content-wrapper">
+    <h1 class="title">Sales & Marketing</h1>
 
-            <!-- Accordion Item 1 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They handle clients, promote company products, and ensure the solutions offered match the customer's needs.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 2 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">2. Primary Responsibilities</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Core duties involve direct sales and marketing execution:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li>Handling client calls, product demonstrations, and follow-ups.</li>
-                        <li>Planning and supporting marketing campaigns.</li>
-                        <li>Monitoring sales performance and preparing reports.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 3 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">3. Secondary Responsibilities</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Supporting tasks include:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li>Assisting with market research.</li>
-                        <li>Collecting customer feedback for the product team.</li>
-                        <li>Maintaining CRM (Customer Relationship Management) data.</li>
-                        <li>Coordinating with other teams for events or product updates.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 4 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">4. Who do they report to?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">The reporting structure is layered, moving up from a manager to the head of the department:</p>
-                    <p class="text-gray-600 mt-2"><strong>Line:</strong> Sales Executive &rarr; Team Lead &rarr; Sales Manager &rarr; Senior Manager &rarr; Head of Sales and Marketing</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 5 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">5. What is the starting point of their career?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Many start in a general sales role. To move into the IT sector, they often learn digital marketing and CRM tools through online courses, then transition into a software company.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 6 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">6. What is the career path?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Growth depends on performance and continuous learning:</p>
-                    <p class="text-gray-600 mt-2"><strong>Path:</strong> Sales Executive &rarr; Senior Executive &rarr; Team Lead &rarr; Manager &rarr; Business Development Head or Product Marketing Manager</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 7 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">7. What is their qualification?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">A business degree like <strong>BBA</strong> is a common foundation. This is often supplemented with <strong>certifications in digital marketing and CRM tools</strong> to understand analytics and platforms.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 8 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">8. How do they interact with other teams?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They coordinate regularly with the <strong>Product</strong>, <strong>Development</strong>, and <strong>Customer Support</strong> teams. They are responsible for sharing client insights, feedback on features, and campaign reports.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 9 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">9. What tools or software do they use?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Their toolkit includes:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li><strong>CRM Tools</strong> (like Salesforce or HubSpot)</li>
-                        <li><strong>Google Analytics</strong> (for tracking campaigns)</li>
-                        <li><strong>Canva</strong> (for creating marketing content)</li>
-                        <li><strong>Excel / Google Sheets</strong> (for reporting and analysis)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 10 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">10. What kind of problems do they solve?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They handle issues related to customer expectations and campaign performance. This includes clients changing their requirements, or analyzing data when sales numbers don't match expectations.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 11 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">11. What kind of person enjoys this job?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Someone who enjoys <strong>talking to people</strong>, <strong>solving problems</strong>, and handling dynamic situations. The role requires patience, confidence, and a curiosity to learn new tools and understand customer behavior.</p>
-                </div>
-            </div>
-            
-            <!-- Accordion Item 12 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">12. How does their work help the company?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Their work <strong>connects the company’s product directly with the customers</strong>. They help customers find value and, just as importantly, share customer feedback back to the company to improve the product.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 13 -->
-            <div class="accordion-item">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">13. How has AI changed the role?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Where the work used to be very manual (calling, updating data), <strong>AI now helps automate tasks</strong>. This includes lead scoring (ranking potential customers), automating email follow-ups, and providing deeper analytics.</p>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center mt-12 text-gray-500">
-            <p>Workplace Study Presentation</p>
-        </footer>
+    <div class="max-w-6xl mx-auto mb-8 flex justify-end">
+      <a href="home.html" class="back-btn">← Back to All Roles</a>
     </div>
 
-    <script>
-        // JavaScript for the accordion
-        document.addEventListener('DOMContentLoaded', function () {
-            const accordionButtons = document.querySelectorAll('.accordion-button');
-            
-            accordionButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Toggle the 'active' class for the icon rotation
-                    button.classList.toggle('active');
-                    
-                    // Get the panel
-                    const panel = button.nextElementSibling;
-                    
-                    // Toggle the panel's visibility
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                    } else {
-                        // Add a little extra to height to prevent content cutoff
-                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
-                    }
-                });
-            });
-        });
-    </script>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">1. What do they do?</span></div>
+          <div class="back"><span class="card-content">Handle clients, promote products, & match solutions to needs</span></div>
+        </div>
+      </div>
 
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">2. Primary Responsibilities</span></div>
+          <div class="back"><span class="card-content">Client calls, product demos, & marketing campaigns</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">3. Secondary Responsibilities</span></div>
+          <div class="back"><span class="card-content">Market research, collect feedback, & maintain CRM data</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">4. Who do they report to?</span></div>
+          <div class="back"><span class="card-content">Team Lead, Sales Manager, or Head of Sales</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">5. Starting point</span></div>
+          <div class="back"><span class="card-content">General sales, then learn digital marketing & CRM tools</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">6. Career path</span></div>
+          <div class="back"><span class="card-content">Executive → Senior → Team Lead → Manager / Head</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">7. Qualification</span></div>
+          <div class="back"><span class="card-content">BBA Degree + Digital Marketing & CRM certifications</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">8. Interaction with teams</span></div>
+          <div class="back"><span class="card-content">Works with Product, Dev, & Support teams</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">9. Tools used</span></div>
+          <div class="back"><span class="card-content">CRM (Salesforce) · Google Analytics · Canva · Excel</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">10. Problems solved</span></div>
+          <div class="back"><span class="card-content">Changing client requirements & analyzing sales data</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">11. Who enjoys this job?</span></div>
+          <div class="back"><span class="card-content">Patient, confident people who enjoy talking & solving problems</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">12. Contribution to company</span></div>
+          <div class="back"><span class="card-content">Connects product with customers & shares feedback to improve</span></div>
+        </div>
+      </div>
+      
+       <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">13. Role change with AI</span></div>
+          <div class="back"><span class="card-content">AI automates lead scoring, follow-ups, & analytics</span></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
 </body>
 </html>

@@ -1,281 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role: HR & TA</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Use the Inter font family */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Style for the accordion panel (hidden by default) */
-        .accordion-panel {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        /* Style for the icon rotation */
-        .accordion-button .icon {
-            transition: transform 0.3s ease-in-out;
-        }
-        .accordion-button.active .icon {
-            transform: rotate(45deg);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HR & TA – Flip Cards with Snow</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f9ff;
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Snow Animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-20px) translateX(0px); opacity: 1; }
+      100% { transform: translateY(120vh) translateX(50px); opacity: 0.7; }
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+      margin-top: 20px;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 600; /* less bold */
+      color: #1e3a8a;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      background: #e0edff;
+      border: 1px solid #bcd8ff;
+      padding: 10px 22px;
+      color: #1e3a8a;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #d3e6ff;
+      transform: translateX(-4px) scale(1.02);
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+    }
+
+    .flip-box {
+      perspective: 1500px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 170px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      border-radius: 14px;
+    }
+
+    .flip-box.flip .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      background: white;
+      border: 2px solid #cfe1ff;
+      box-shadow: 0 6px 12px rgba(0, 90, 200, 0.15); /* softer shadow */
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .front .card-content {
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #1e3a8a, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back .card-content {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1e3a8a;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
 
-    <div class="max-w-4xl mx-auto">
-        
-        <!-- Header Section -->
-        <header class="mb-10">
-            <!-- Back Button -->
-            <a href="home.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to All Roles
-            </a>
-            
-            <!-- Page Title -->
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">HR & Talent Acquisition (TA)</h1>
-            <p class="mt-3 text-lg text-gray-600">The "People Managers" and "Culture Custodians" of the company.</p>
-        </header>
+<body>
+  <!-- Snowflakes -->
+  <script>
+    const snowCount = 80;
+    for(let i = 0; i < snowCount; i++) {
+      const snow = document.createElement('div');
+      snow.classList.add('snowflake');
+      snow.style.left = Math.random() * window.innerWidth + 'px';
+      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snow.style.opacity = Math.random() * 0.8 + 0.2;
+      snow.style.width = 5 + Math.random() * 8 + 'px';
+      snow.style.height = snow.style.width;
+      document.body.appendChild(snow);
+    }
+  </script>
 
-        <!-- Main Content: Accordion -->
-        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+  <main class="content-wrapper">
+    <h1 class="title">HR & Talent Acquisition</h1>
 
-            <!-- Accordion Item 1 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They manage the entire employee lifecycle. Their primary duties include:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li><strong>Talent Acquisition:</strong> Sourcing, interviewing, and hiring new talent.</li>
-                        <li><strong>Onboarding:</strong> Integrating new hires into the company.</li>
-                        <li><strong>Employee Relations:</strong> Managing performance reviews and resolving conflicts.</li>
-                        <li><strong>HR Operations:</strong> Handling attendance, leave, payroll inputs, and legal compliance (like POSH).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 2 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">2. Who do they report to?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Typically, they report to an <strong>HR Manager</strong> or <strong>Head of People/HR Director</strong>. In smaller companies, they might report directly to the <strong>COO</strong> or <strong>CEO</strong>.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 3 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">3. What is the starting point of their career?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Most professionals start as an <strong>HR Assistant</strong>, <strong>HR Intern</strong>, or <strong>Junior Recruiter</strong>. This provides a foundation in recruitment, data management, and operational processes.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 4 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">4. What is the career path?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">The path moves from administrative roles to strategic management:</p>
-                    <p class="text-gray-600 mt-2"><strong>Path:</strong> HR Intern &rarr; HR Executive &rarr; HR Generalist / TA Specialist &rarr; HR Manager &rarr; Head of HR &rarr; Chief People Officer (CPO)</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 5 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">5. What is their qualification?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li><strong>Degree:</strong> Bachelor's in HR, Business, or Psychology is standard.</li>
-                        <li><strong>Advanced:</strong> An <strong>MBA in HR</strong> is highly valued for senior roles.</li>
-                        <li><strong>Certifications:</strong> SHRM or PHR are valuable extras.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 6 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">6. How do they interact with other teams?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">HR is a central hub. They work with:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li><strong>Technical Teams:</strong> To define job requirements and plan hiring.</li>
-                        <li><strong>Finance:</strong> To coordinate payroll, compensation, and budgets.</li>
-                        <li><strong>Legal:</strong> To ensure compliance with labor laws.</li>
-                        <li><strong>Marketing:</strong> To support employer branding to attract talent.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 7 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">7. What tools or software do they use?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li><strong>HRIS (Info Systems):</strong> Workday, BambooHR, Keka, Zoho People.</li>
-                        <li><strong>ATS (Tracking):</strong> Greenhouse, Lever, Taleo.</li>
-                        <li><strong>Sourcing:</strong> LinkedIn Recruiter, Naukri, Indeed.</li>
-                        <li><strong>General:</strong> MS Excel/Google Sheets, Slack/Teams.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 8 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">8. What kind of problems do they solve?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They balance employee needs with business needs, including:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li>Resolving team conflicts and sensitive employee grievances.</li>
-                        <li>Hiring for highly specialized technical roles.</li>
-                        <li>Reducing employee turnover and preventing burnout.</li>
-                        <li>Aligning salary expectations with the company's budget.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 9 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">9. What kind of person enjoys this job?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Someone who is a strong, empathetic listener, highly organized, diplomatic, and can maintain confidentiality in sensitive situations.</p>
-                </div>
-            </div>
-            
-            <!-- Accordion Item 10 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">10. How does their work help the company?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Hiring and supporting skilled, motivated people ensures the company can deliver quality products. A positive culture leads to engaged employees, which directly improves customer satisfaction.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 11 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">11. How has AI changed the role?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">AI and HR systems automate routine admin tasks (like resume screening). This frees HR to focus on high-value, human-centric activities like strategy, culture, and relationship building.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 12 -->
-            <div class="accordion-item">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">12. What's the difference between HR and TA?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <!-- Comparison Table -->
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-gray-100">
-                                    <th class="p-3 border border-gray-300 font-semibold">Point</th>
-                                    <th class="p-3 border border-gray-300 font-semibold">Talent Acquisition (TA)</th>
-                                    <th class="p-3 border border-gray-300 font-semibold">Human Resources (HR)</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700">
-                                <tr>
-                                    <td class="p-3 border border-gray-300 font-medium">Main Role</td>
-                                    <td class="p-3 border border-gray-300">Hires new people for the company.</td>
-                                    <td class="p-3 border border-gray-300">Manages employees after they join.</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 border border-gray-300 font-medium">Focus</td>
-                                    <td class="p-3 border border-gray-300">Recruitment and talent sourcing.</td>
-                                    <td class_pro="p-3 border border-gray-300">Employee care, training, salary, policies.</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 border border-gray-300 font-medium">Work Stage</td>
-                                    <td class="p-3 border border-gray-300">Before joining.</td>
-                                    <td class="p-3 border border-gray-300">After joining.</td>
-                                </tr>
-                                <tr>
-                                    <td class="p-3 border border-gray-300 font-medium">Goal</td>
-                                    <td class="p-3 border border-gray-300">Find the best people for open jobs.</td>
-                                    <td class="p-3 border border-gray-300">Keep employees happy and productive.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="mt-4 p-4 bg-indigo-50 rounded-lg">
-                        <p class="text-indigo-800 font-semibold text-center">Easy Line to Remember:</p>
-                        <p class="text-indigo-700 text-center">"TA brings people in, HR helps them stay and grow."</p>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center mt-12 text-gray-500">
-            <p>Workplace Study Presentation</p>
-        </footer>
+    <div class="max-w-6xl mx-auto mb-8 flex justify-end">
+      <a href="home.html" class="back-btn">← Back to All Roles</a>
     </div>
 
-    <script>
-        // JavaScript for the accordion
-        document.addEventListener('DOMContentLoaded', function () {
-            const accordionButtons = document.querySelectorAll('.accordion-button');
-            
-            accordionButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Toggle the 'active' class for the icon rotation
-                    button.classList.toggle('active');
-                    
-                    // Get the panel
-                    const panel = button.nextElementSibling;
-                    
-                    // Toggle the panel's visibility
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                    } else {
-                        panel.style.maxHeight = panel.scrollHeight + 'px';
-                    }
-                });
-            });
-        });
-    </script>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 12 Cards -->
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">1. What do they do?</span></div>
+          <div class="back"><span class="card-content">Recruit + Manage employees</span></div>
+        </div>
+      </div>
 
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">2. Who do they report to?</span></div>
+          <div class="back"><span class="card-content">HR Manager / HR Director</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">3. Starting point</span></div>
+          <div class="back"><span class="card-content">HR Intern or HR Assistant</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">4. Career path</span></div>
+          <div class="back"><span class="card-content">Intern → Executive → Manager → Head of HR</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">5. Qualification</span></div>
+          <div class="back"><span class="card-content">BBA / MBA HR + Certifications</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">6. Interaction with teams</span></div>
+          <div class="back"><span class="card-content">Works with Tech, Finance, Legal, Marketing</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">7. Tools used</span></div>
+          <div class="back"><span class="card-content">LinkedIn · Zoho · Keka · Naukri</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">8. Problems solved</span></div>
+          <div class="back"><span class="card-content">Conflicts • Hiring issues • Retention</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">9. Who enjoys this job?</span></div>
+          <div class="back"><span class="card-content">Organized, people-friendly, calm person</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">10. Contribution to company</span></div>
+          <div class="back"><span class="card-content">Better hiring → Better work → Happy customers</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">11. Role change with AI</span></div>
+          <div class="back"><span class="card-content">Less admin · More strategy</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">12. HR vs TA</span></div>
+          <div class="back"><span class="card-content">TA hires • HR manages after joining</span></div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

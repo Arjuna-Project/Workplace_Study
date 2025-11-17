@@ -1,258 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Role: Developer</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Use the Inter font family */
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        /* Style for the accordion panel (hidden by default) */
-        .accordion-panel {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        /* Style for the icon rotation */
-        .accordion-button .icon {
-            transition: transform 0.3s ease-in-out;
-        }
-        .accordion-button.active .icon {
-            transform: rotate(45deg);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer – Flip Cards with Snow</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f9ff;
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Snow Animation */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+      pointer-events: none;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-20px) translateX(0px); opacity: 1; }
+      100% { transform: translateY(120vh) translateX(50px); opacity: 0.7; }
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 20px;
+      margin-top: 20px;
+    }
+
+    .title {
+      font-size: 36px;
+      font-weight: 600; /* less bold */
+      color: #1e3a8a;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .back-btn {
+      background: #e0edff;
+      border: 1px solid #bcd8ff;
+      padding: 10px 22px;
+      color: #1e3a8a;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #d3e6ff;
+      transform: translateX(-4px) scale(1.02);
+      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+    }
+
+    .flip-box {
+      perspective: 1500px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 170px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      border-radius: 14px;
+    }
+
+    .flip-box.flip .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      backface-visibility: hidden;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      background: white;
+      border: 2px solid #cfe1ff;
+      box-shadow: 0 6px 12px rgba(0, 90, 200, 0.15); /* softer shadow */
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .front .card-content {
+      font-size: 1.2rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #1e3a8a, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .back .card-content {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1e3a8a;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
 
-    <div class="max-w-4xl mx-auto">
-        
-        <!-- Header Section -->
-        <header class="mb-10">
-            <!-- Back Button -->
-            <a href="home.html" class="inline-flex items-center text-indigo-600 hover:text-indigo-800 hover:underline mb-4 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to All Roles
-            </a>
-            
-            <!-- Page Title -->
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Developer</h1>
-            <p class="mt-3 text-lg text-gray-600">The architects and builders of software, turning ideas into functional applications.</p>
-        </header>
+<body>
+  <script>
+    const snowCount = 80;
+    for(let i = 0; i < snowCount; i++) {
+      const snow = document.createElement('div');
+      snow.classList.add('snowflake');
+      snow.style.left = Math.random() * window.innerWidth + 'px';
+      snow.style.animationDuration = 5 + Math.random() * 5 + 's';
+      snow.style.opacity = Math.random() * 0.8 + 0.2;
+      snow.style.width = 5 + Math.random() * 8 + 'px';
+      snow.style.height = snow.style.width;
+      document.body.appendChild(snow);
+    }
+  </script>
 
-        <!-- Main Content: Accordion -->
-        <main class="bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden">
+  <main class="content-wrapper">
+    <h1 class="title">Developer</h1>
 
-            <!-- Accordion Item 1 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">1. What do they do?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Developers design, build, test, and maintain software applications from end-to-end. This includes:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li><strong>Frontend Development:</strong> Building user interfaces (UIs) for web and desktop apps using tools like React.js, JavaScript, and CSS.</li>
-                        <li><strong>Backend Development:</strong> Creating server-side logic, APIs, and managing databases using Node.js, Java, Python, and cloud services (AWS).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 2 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">2. Primary Responsibilities</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li>Developing and implementing new application features.</li>
-                        <li>Writing clean, efficient, and scalable code.</li>
-                        <li>Meeting project deadlines with high-quality, error-free work.</li>
-                        <li>Optimizing application performance and fixing bugs.</li>
-                        <li>Mentoring junior developers (for senior roles).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 3 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">3. Secondary Responsibilities</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <ul class="list-disc list-inside text-gray-600 space-y-1">
-                        <li>Performing code reviews for teammates to ensure quality.</li>
-                        <li>Conducting technical interviews for new candidates.</li>
-                        <li>Managing access to cloud services (light DevOps tasks).</li>
-                        <li>Writing and maintaining technical documentation.</li>
-                        <li>Continuously learning new tools and technologies.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 4 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">4. Who do they report to?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Developers generally report to a <strong>Team Lead</strong>, <strong>Project Manager</strong>, or <strong>Engineering Manager</strong>.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 5 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">5. What is the starting point of their career?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">The career usually starts as a <strong>Junior Developer</strong>, <strong>Trainee</strong>, or <strong>Intern</strong>. This often follows a <strong>B.Tech/MCA</strong> degree or an intensive practical training program.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 6 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">6. What is the career path?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">The progression is typically:</p>
-                    <p class="text-gray-600 mt-2"><strong>Path:</strong> Trainee/Associate &rarr; Junior Developer &rarr; Software Engineer &rarr; Senior Software Developer &rarr; Team Lead / Project Manager / Software Architect</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 7 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">7. What is their qualification?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">A Computer Science degree (<strong>B.Tech</strong> or <strong>MCA</strong>) is common, but the most critical qualifications are <strong>hands-on experience</strong> and strong skills in <strong>problem-solving</strong> and analysis.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 8 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">8. How do they interact with other teams?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">The role is highly collaborative. They work closely with <strong>Design</strong>, <strong>QA</strong>, <strong>Product</strong>, and <strong>DevOps</strong> teams using tools like <strong>Slack</strong>, <strong>Google Chat</strong>, and email to coordinate.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 9 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">9. What tools or software do they use?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Their toolkit is extensive and includes:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li><strong>Editors/IDEs:</strong> VS Code, WebStorm</li>
-                        <li><strong>Version Control:</strong> Git, GitHub</li>
-                        <li><strong>API Testing:</strong> Postman</li>
-                        <li><strong>Languages/Frameworks:</strong> React.js, Node.js, JavaScript, Python, Java</li>
-                        <li><strong>Cloud:</strong> AWS Services</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 10 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">10. What kind of problems do they solve?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They are focused on technical implementation and troubleshooting, such as:</p>
-                    <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
-                        <li>Building new features from technical requirements.</li>
-                        <li>Debugging and resolving complex software issues.</li>
-                        <li>Fixing UI bugs and optimizing frontend performance.</li>
-                        <li>Solving logical errors, often by "Reverse Minding" (tracing issues backward).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Accordion Item 11 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">11. What kind of person enjoys this job?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">Someone who is <strong>curious</strong>, Mus <strong>eager to learn</strong> new technologies, and genuinely <strong>enjoys creative problem-solving and debugging</strong>. Patience and strong analytical skills are key.</p>
-                </div>
-            </div>
-            
-            <!-- Accordion Item 12 -->
-            <div class="accordion-item border-b border-gray-200">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">12. How does their work help the company?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">They are fundamental to the company's success. Their work <strong>directly supports company growth</strong> by building new products and features. Delivering reliable, user-friendly software (like device customization apps) <strong>directly enhances customer satisfaction</strong>.</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 13 -->
-            <div class="accordion-item">
-                <button class="accordion-button w-full flex justify-between items-center text-left p-6 hover:bg-gray-50 focus:outline-none">
-                    <span class="text-lg font-semibold text-indigo-700">13. How has AI changed the role?</span>
-                    <span class="icon text-indigo-700 text-3xl font-light">+</span>
-                </button>
-                <div class="accordion-panel px-6 pb-6">
-                    <p class="text-gray-700">AI tools like <strong>GitHub Copilot</strong> automate repetitive coding, making developers more productive. This shifts their primary focus away from simple coding and more towards <strong>high-level logic, deep problem-solving, debugging, and product architecture</strong>.</p>
-                </div>
-            </div>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center mt-12 text-gray-500">
-            <p>Workplace Study Presentation</p>
-        </footer>
+    <div class="max-w-6xl mx-auto mb-8 flex justify-end">
+      <a href="home.html" class="back-btn">← Back to All Roles</a>
     </div>
 
-    <script>
-        // JavaScript for the accordion
-        document.addEventListener('DOMContentLoaded', function () {
-            const accordionButtons = document.querySelectorAll('.accordion-button');
-            
-            accordionButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Toggle the 'active' class for the icon rotation
-                    button.classList.toggle('active');
-                    
-                    // Get the panel
-                    const panel = button.nextElementSibling;
-                    
-                    // Toggle the panel's visibility
-                    if (panel.style.maxHeight) {
-                        panel.style.maxHeight = null;
-                    } else {
-                        // Add a little extra to height to prevent content cutoff
-                        panel.style.maxHeight = (panel.scrollHeight + 20) + 'px';
-                    }
-                });
-            });
-        });
-    </script>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">1. What do they do?</span></div>
+          <div class="back"><span class="card-content">Build & maintain software (Frontend + Backend)</span></div>
+        </div>
+      </div>
 
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">2. Primary Responsibilities</span></div>
+          <div class="back"><span class="card-content">Write clean code · Meet deadlines · Fix bugs</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">3. Secondary Responsibilities</span></div>
+          <div class="back"><span class="card-content">Code reviews · Interviews · Documentation</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">4. Who do they report to?</span></div>
+          <div class="back"><span class="card-content">Team Lead or Project Manager</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">5. Starting point</span></div>
+          <div class="back"><span class="card-content">Junior Developer or Trainee</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">6. Career path</span></div>
+          <div class="back"><span class="card-content">Junior → Engineer → Senior → Lead/Architect</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">7. Qualification</span></div>
+          <div class="back"><span class="card-content">B.Tech/MCA + Strong problem-solving skills</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">8. Interaction with teams</span></div>
+          <div class="back"><span class="card-content">Works with Design, QA, Product, DevOps</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">9. Tools used</span></div>
+          <div class="back"><span class="card-content">VS Code · Git · Postman · React · Node · AWS</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">10. Problems solved</span></div>
+          <div class="back"><span class="card-content">Build features · Debug issues · Fix UI/logic bugs</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">11. Who enjoys this job?</span></div>
+          <div class="back"><span class="card-content">Curious, creative problem-solvers who love learning</span></div>
+        </div>
+      </div>
+
+      <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">12. Contribution to company</span></div>
+          <div class="back"><span class="card-content">Builds products · Supports growth · Enhances user satisfaction</span></div>
+        </div>
+      </div>
+
+       <div class="flip-box" onclick="this.classList.toggle('flip')">
+        <div class="flip-inner">
+          <div class="front"><span class="card-content">13. Role change with AI</span></div>
+          <div class="back"><span class="card-content">Less simple coding · More high-level logic & architecture</span></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
 </body>
 </html>
