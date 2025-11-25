@@ -4,126 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workplace Study - Homepage</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        /* Use the Inter font family */
         body {
             font-family: 'Inter', sans-serif;
-        }
-        
-        /* Custom focus ring for accessibility */
-        .role-card:focus-visible {
-            outline: 3px solid #4F46E5;
-            outline-offset: 2px;
+            background: #f0f4f8; /* light background */
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* --- Animation --- */
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            border-radius: 20px;
+            filter: blur(20px);
+            opacity: 0.25;
+            animation: floatShape 6s ease-in-out infinite;
+        }
+        @keyframes floatShape {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .shape1 { width: 120px; height: 120px; background: #1e3a8a; top: 5%; left: 10%; animation-delay: 0s; }
+        .shape2 { width: 80px; height: 80px; background: #4338ca; bottom: 10%; right: 15%; animation-delay: 2s; }
+        .shape3 { width: 60px; height: 60px; background: #1e40af; bottom: 25%; left: 50%; animation-delay: 4s; }
+
+        /* Card Animation */
         @keyframes fadeInSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        .animate-card { opacity: 0; animation: fadeInSlideUp 0.5s ease-out forwards; }
 
-        /* Class to apply the animation */
-        .animate-card {
-            /* Set initial state to invisible for the animation */
-            opacity: 0; 
-            /* Fill mode keeps the 'to' state after animation finishes */
-            animation: fadeInSlideUp 0.5s ease-out forwards; 
+        /* Focus outline for accessibility */
+        .role-card:focus-visible {
+            outline: 3px solid #1e3a8a; /* dark gradient color accent */
+            outline-offset: 2px;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 to-indigo-100 text-gray-900 min-h-screen p-8">
 
-    <div class="max-w-6xl mx-auto">
-        <!-- Header Section -->
+<body class="min-h-screen p-8 text-gray-900">
+
+    <!-- Floating shapes -->
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+        <!-- Header -->
         <header class="text-center mb-12 md:mb-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-800">Workplace Roles & Responsibilities</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Workplace Roles & Responsibilities</h1>
             <p class="mt-4 text-lg text-gray-600">Click on a role to learn more about its impact in the workplace.</p>
         </header>
 
-        <!-- Main Content: Roles Grid -->
+        <!-- Roles Grid -->
         <main>
-            <!-- 
-                Grid layout:
-                - 1 column on small screens (default)
-                - 2 columns on medium screens (sm:)
-                - 3 columns on large screens (lg:)
-            -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                
-                <!-- Role Card 1: HR & TA -->
+
+                <!-- Role Card 1 -->
                 <a href="hr_ta.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                    style="animation-delay: 100ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">HR & TA</h2>
-                    <p class="text-gray-600 mb-4">The people behind the people, managing culture, growth, and hiring.</p>
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">HR & TA</h2>
+                    <p class="text-gray-700 mb-4">Managing culture, growth, and hiring.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
-                <!-- Role Card 2: DevOps -->
+                <!-- Role Card 2 -->
                 <a href="devops.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                    style="animation-delay: 200ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">DevOps</h2>
-                    <p class="text-gray-600 mb-4">Bridging development and IT operations to build, test, and release software faster.</p>
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">DevOps</h2>
+                    <p class="text-gray-700 mb-4">Bridging development and IT operations.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
-                <!-- Role Card 3: Sales and Marketing -->
+                <!-- Role Card 3 -->
                 <a href="sales_marketing.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                    style="animation-delay: 300ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">Sales & Marketing</h2>
-                    <p class="text-gray-600 mb-4">The voice and engine of growth, connecting products with customers.</p>
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">Sales & Marketing</h2>
+                    <p class="text-gray-700 mb-4">Connecting products with customers.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
-                <!-- Role Card 4: Customer Support -->
+                <!-- Role Card 4 -->
                 <a href="customer_support.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                    style="animation-delay: 400ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">Customer Support</h2>
-                    <p class="text-gray-600 mb-4">The front line of user happiness, providing solutions and gathering feedback.</p>
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">Customer Support</h2>
+                    <p class="text-gray-700 mb-4">Providing solutions & gathering feedback.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
-                <!-- Role Card 5: QA Engineer -->
+                <!-- Role Card 5 -->
                 <a href="qa_engineer.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                    style="animation-delay: 500ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">QA Engineer</h2>
-                    <p class="text-gray-600 mb-4">The guardian of quality, ensuring products are reliable, functional, and bug-free.</p>
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">QA Engineer</h2>
+                    <p class="text-gray-700 mb-4">Ensuring products are reliable and bug-free.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
-                <!-- Role Card 6: Developer -->
+                <!-- Role Card 6 -->
                 <a href="developer.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group"
                    style="animation-delay: 600ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">Developer</h2>
-                    <p class="text-gray-600 mb-4">The architect and builder of software, turning ideas into functional applications.</p>
-
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">Developer</h2>
+                    <p class="text-gray-700 mb-4">Turning ideas into functional applications.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
-                <!-- 
-                    Role Card 7: IT Support 
-                    - On large screens (lg:), this item will start in the 2nd grid column,
-                      effectively centering it on the last row.
-                -->
+                <!-- Role Card 7 -->
                 <a href="it_support.html" 
-                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] focus:shadow-xl focus:-translate-y-1 focus:scale-[1.03] transition-all duration-300 ease-in-out group sm:col-span-2 lg:col-span-1 lg:col-start-2"
+                   class="role-card animate-card bg-white p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 group sm:col-span-2 lg:col-span-1 lg:col-start-2"
                    style="animation-delay: 700ms;">
-                    <h2 class="text-2xl font-semibold text-indigo-700 mb-3 group-hover:text-indigo-800">IT Support</h2>
-                    <p class="text-gray-600 mb-4">The backbone of internal operations, keeping all systems and networks running.</p>
-                    <span class="text-indigo-600 font-medium group-hover:underline">Learn More &rarr;</span>
+                    <h2 class="text-2xl font-semibold text-indigo-900 mb-3 group-hover:text-indigo-700">IT Support</h2>
+                    <p class="text-gray-700 mb-4">Keeping all systems and networks running.</p>
+                    <span class="text-indigo-800 font-medium group-hover:underline">Learn More &rarr;</span>
                 </a>
 
             </div>

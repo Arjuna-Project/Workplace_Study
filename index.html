@@ -1,93 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workplace Study Presentation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workplace Study Presentation</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        body {
-            font-family: "Inter", sans-serif;
-            overflow: hidden;
-        }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-        /* Fade + slight scale */
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(25px) scale(0.97); }
-            100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+      color: #1f2937;
+    }
 
-        /* Soft floating shapes */
-        @keyframes floatShape {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
-            50% { transform: translateY(-25px) rotate(10deg); opacity: 0.5; }
-            100% { transform: translateY(0) rotate(0deg); opacity: 0.25; }
-        }
+    .shape {
+      position: absolute;
+      border-radius: 20px;
+      filter: blur(20px);
+      opacity: 0.3;
+      animation: floatShape 6s ease-in-out infinite;
+    }
+    @keyframes floatShape {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(15deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+    .shape1 { width: 120px; height: 120px; background: #1e3a8a; top: 5%; left: 10%; animation-delay: 0s; }
+    .shape2 { width: 80px; height: 80px; background: #4f46e5; bottom: 10%; right: 15%; animation-delay: 2s; }
+    .shape3 { width: 60px; height: 60px; background: #1e40af; bottom: 25%; left: 50%; animation-delay: 4s; }
 
-        /* Button animation */
-        @keyframes buttonPop {
-            0% { transform: scale(0.95); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 50px 40px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      max-width: 600px;
+      position: relative;
+      z-index: 5;
+      animation: fadeUp 1.2s ease-out forwards;
+    }
 
-        .fade-up {
-            animation: fadeUp 1.2s ease-out forwards;
-        }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(25px) scale(0.97); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
 
-        .btn-animate {
-            animation: buttonPop 1s ease-out forwards;
-        }
+    .title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 15px;
+    }
 
-        /* floating shapes style */
-        .shape {
-            position: absolute;
-            border-radius: 20px;
-            filter: blur(10px);
-            opacity: 0.35;
-            animation: floatShape 6s ease-in-out infinite;
-        }
-    </style>
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 15px;
+    }
+
+    .members {
+      font-size: 1rem;
+      color: #374151;
+      font-weight: 600; /* made bolder */
+      margin-bottom: 10px;
+    }
+
+    .batch {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 25px;
+    }
+
+    .btn-start {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 12px;
+      background: #1e3a8a;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-start:hover {
+      background: #4f46e5;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+  </style>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center relative">
+<body>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
 
-    <!-- Floating shapes -->
-    <div class="shape bg-blue-300 w-40 h-40 top-10 left-10" style="animation-delay: 0s;"></div>
-    <div class="shape bg-indigo-300 w-32 h-32 bottom-20 right-20" style="animation-delay: 1s;"></div>
-    <div class="shape bg-blue-200 w-24 h-24 bottom-32 left-1/2" style="animation-delay: 2s;"></div>
-
-    <div class="text-center px-6 relative">
-
-        <!-- Title -->
-        <h1 class="text-5xl md:text-6xl font-extrabold text-blue-900 fade-up" style="animation-delay: 0.2s;">
-            Workplace Study Presentation
-        </h1>
-
-        <!-- Subtitle -->
-        <h2 class="text-2xl md:text-3xl mt-4 font-semibold text-blue-700 fade-up" style="animation-delay: 0.4s;">
-            Squad: Code Casters
-        </h2>
-
-        <!-- Members -->
-        <p class="text-gray-700 mt-4 max-w-xl mx-auto fade-up" style="animation-delay: 0.6s;">
-            Arockia Rahis R, Arjuna S, Ramya K, Kayalvizhi B, Bhuvaneswaran G
-        </p>
-
-        <!-- Batch -->
-        <p class="text-xl text-blue-800 font-bold mt-4 fade-up" style="animation-delay: 0.8s;">
-            FSSA — Batch 5
-        </p>
-
-        <!-- Button -->
-        <a href="./pages/home.html"
-           class="inline-block mt-10 py-3 px-12 rounded-lg bg-blue-700 text-white font-semibold text-lg shadow-md hover:bg-blue-600 transition btn-animate"
-           style="animation-delay: 1s;">
-            Get Started
-        </a>
-
-    </div>
-
+  <div class="card">
+    <h1 class="title">Workplace Study Presentation</h1>
+    <h2 class="subtitle">Squad: Code Casters</h2>
+    <p class="members">Arockia Rahis R, Arjuna S, Ramya K, Kayalvizhi B, Bhuvaneswaran G</p>
+    <p class="batch">FSSA — Batch 5</p>
+    <a href="./pages/home.html" class="btn-start">Get Started</a>
+  </div>
 </body>
 </html>
