@@ -12,7 +12,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0f1a33; /* dark night theme */
+      background: #0f1a33;
       height: 100vh;
       overflow-y: hidden;
       padding: 20px;
@@ -22,7 +22,6 @@
       position: relative;
     }
 
-    /* Back Button */
     .back-btn {
       position: absolute;
       top: 15px;
@@ -43,7 +42,6 @@
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
     }
 
-    /* Snow */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -74,7 +72,6 @@
       z-index: 10;
     }
 
-    /* Cards */
     .flip-box {
       perspective: 1500px;
       cursor: pointer;
@@ -111,9 +108,7 @@
       text-align: center;
     }
 
-    .back {
-      transform: rotateY(180deg);
-    }
+    .back { transform: rotateY(180deg); }
 
     .content-wrapper {
       width: 100%;
@@ -141,7 +136,6 @@
 
 <a href="home.html" class="back-btn">← Back to All Roles</a>
 
-<!-- Snow Script -->
 <script>
   const snowCount = 70;
   for(let i = 0; i < snowCount; i++) {
@@ -158,82 +152,27 @@
 
 <main class="content-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">1. What do they do?</span></div>
-      <div class="back"><span class="card-content">Fix hardware, software, passwords & system issues</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">1. Troubleshooting Issues</span></div><div class="back"><span class="card-content">Hardware, software, network</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">2. Who do they report to?</span></div>
-      <div class="back"><span class="card-content">IT Support Lead or Service Desk Manager</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">2. User Access Support</span></div><div class="back"><span class="card-content">Managing employee access</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">3. Starting point</span></div>
-      <div class="back"><span class="card-content">L1 Support / Helpdesk Technician</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">3. System Installation</span></div><div class="back"><span class="card-content">Installing & configuring systems</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">4. Career path</span></div>
-      <div class="back"><span class="card-content">L1 → L2 → SysAdmin → IT Engineer → Lead</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">4. System Updates</span></div><div class="back"><span class="card-content">Windows, macOS, Linux updates</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">5. Qualification</span></div>
-      <div class="back"><span class="card-content">CS/IT Degree + A+, N+, CCNA (optional)</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">5. User Account Management</span></div><div class="back"><span class="card-content">Active Directory, Azure</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">6. Interaction with teams</span></div>
-      <div class="back"><span class="card-content">Network, Security, DevOps, Engineering Teams</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">6. End-User Support</span></div><div class="back"><span class="card-content">Tickets, calls, chats</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">7. Tools used</span></div>
-      <div class="back"><span class="card-content">ServiceNow, Active Directory, AnyDesk, Azure</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">7. Remote Assistance</span></div><div class="back"><span class="card-content">Supporting users remotely</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">8. Problems solved</span></div>
-      <div class="back"><span class="card-content">Password issues · Hardware failure · VPN problems</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">8. Team Collaboration</span></div><div class="back"><span class="card-content">Network, Security, Cloud teams</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">9. Who enjoys this job?</span></div>
-      <div class="back"><span class="card-content">Patient, friendly problem-solvers who like tech</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">9. Problem-Solving</span></div><div class="back"><span class="card-content">Patient, analytical approach</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">10. Contribution to company</span></div>
-      <div class="back"><span class="card-content">Keeps systems working & reduces downtime</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">10. Technology Awareness</span></div><div class="back"><span class="card-content">Staying updated with tech</span></div></div></div>
 
-  <div class="flip-box" onclick="this.classList.toggle('flip')">
-    <div class="flip-inner">
-      <div class="front"><span class="card-content">11. Role change with AI</span></div>
-      <div class="back"><span class="card-content">AI automates routine fixes; IT handles complex issues</span></div>
-    </div>
-  </div>
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner"><div class="front"><span class="card-content">11. Supporting Company Goals</span></div><div class="back"><span class="card-content">Enhancing employee satisfaction</span></div></div></div>
 
 </main>
 
@@ -241,9 +180,7 @@
   window.onload = () => {
     const cards = document.querySelectorAll('.flip-box');
     cards.forEach((card, index) => {
-      setTimeout(() => {
-        card.classList.add('flip');
-      },5000 + index * 3000);
+      setTimeout(() => { card.classList.add('flip'); }, 5000 + index * 5000);
     });
   };
 </script>
