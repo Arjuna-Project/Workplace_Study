@@ -12,7 +12,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #0f1a33; /* dark night theme */
+      background: #0f1a33; 
       height: 100vh;
       overflow-y: hidden;
       padding: 20px;
@@ -23,7 +23,6 @@
       color: white;
     }
 
-    /* Back Button */
     .back-btn {
       position: absolute;
       top: 15px;
@@ -44,7 +43,6 @@
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
     }
 
-    /* Snow */
     .snowflake {
       position: fixed;
       top: -10px;
@@ -75,7 +73,6 @@
       z-index: 10;
     }
 
-    /* Cards */
     .flip-box {
       perspective: 1500px;
       cursor: pointer;
@@ -142,7 +139,6 @@
 
 <a href="home.html" class="back-btn">← Back to All Roles</a>
 
-<!-- Snow Script -->
 <script>
   const snowCount = 70;
   for(let i = 0; i < snowCount; i++) {
@@ -159,70 +155,65 @@
 
 <main class="content-wrapper grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">1. What do they do?</span></div>
     <div class="back"><span class="card-content">Handle clients, promote products, & match solutions to needs</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">2. Primary Responsibilities</span></div>
     <div class="back"><span class="card-content">Client calls, product demos, & marketing campaigns</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">3. Secondary Responsibilities</span></div>
     <div class="back"><span class="card-content">Market research, collect feedback, & maintain CRM data</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">4. Who do they report to?</span></div>
     <div class="back"><span class="card-content">Team Lead, Sales Manager, or Head of Sales</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">5. Starting point</span></div>
     <div class="back"><span class="card-content">General sales, then learn digital marketing & CRM tools</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">6. Career path</span></div>
     <div class="back"><span class="card-content">Executive → Senior → Team Lead → Manager / Head</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">7. Qualification</span></div>
     <div class="back"><span class="card-content">BBA Degree + Digital Marketing & CRM certifications</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">8. Interaction with teams</span></div>
     <div class="back"><span class="card-content">Works with Product, Dev, & Support teams</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">9. Tools used</span></div>
     <div class="back"><span class="card-content">CRM (Salesforce) · Google Analytics · Canva · Excel</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">10. Problems solved</span></div>
     <div class="back"><span class="card-content">Changing client requirements & analyzing sales data</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">11. Who enjoys this job?</span></div>
     <div class="back"><span class="card-content">Patient, confident people who enjoy talking & solving problems</span></div>
   </div></div>
 
-  <div class="flip-box"><div class="flip-inner">
+  <div class="flip-box" onclick="this.classList.toggle('flip')"><div class="flip-inner">
     <div class="front"><span class="card-content">12. Contribution to company</span></div>
     <div class="back"><span class="card-content">Connects product with customers & shares feedback to improve</span></div>
   </div></div>
-<!-- 
-  <div class="flip-box"><div class="flip-inner">
-    <div class="front"><span class="card-content">13. Role change with AI</span></div>
-    <div class="back"><span class="card-content">AI automates lead scoring, follow-ups, & analytics</span></div>
-  </div></div> -->
 
 </main>
 
@@ -232,7 +223,7 @@
     cards.forEach((card, index) => {
       setTimeout(() => {
         card.classList.add('flip');
-      }, 5000 + index * 5000); // auto flip one by one
+      }, 5000 + index * 5000);
     });
   };
 </script>
